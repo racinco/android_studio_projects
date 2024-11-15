@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TaskList</string>
+    <string name="smallTextSize">14sp</string>
+    <string name="drawerOpen">drawerOpen</string>
+    <string name="drawerClose">drawerClose</string>
+
+
+</resources>

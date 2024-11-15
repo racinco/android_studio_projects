@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragment"
+    android:background="@color/bg_dirtyWhite"
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fab_constraint"
+        android:layout_marginRight="16dp"
+        android:translationZ="20dp"
+        android:layout_marginTop="375dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/addTasks_card"
+        app:layout_constraintTop_toTopOf="@+id/addTasks_card">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/more_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more"
+            app:fabSize="mini" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+            android:id="@+id/cancel_fab"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_cancel"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toBottomOf="@+id/more_fab"
+            app:layout_constraintEnd_toStartOf="@+id/more_fab" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/save_fab"
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_save"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toBottomOf="@+id/cancel_fab"
+            app:layout_constraintEnd_toStartOf="@+id/cancel_fab" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_recView"
+        android:layout_width="wrap_content"
+        android:layout_height="729dp"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <androidx.cardview.widget.CardView
+        android:visibility="visible"
+        android:id="@+id/addTasks_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="30dp"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="80dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="400dp">
+            <RelativeLayout
+                android:id="@+id/addTasksRl"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:background="@color/colorAccent">
+                <TextView
+                    android:textColor="@color/pureblack"
+                    android:text="ADD Tasks"
+                    android:fontFamily="@font/lemon"
+                    android:textSize="30dp"
+                    android:textAlignment="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+                </TextView>
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_description_layout"
+                android:visibility="gone"
+                android:layout_marginTop="50dp"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true">
+
+                <TextView
+                    android:id="@+id/textViewDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="DESCRIPTION: "
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    app:layout_constraintTop_toBottomOf="@id/textViewDesc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/description_edt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine"
+                  />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_task_layout"
+                android:visibility="visible"
+                android:layout_marginTop="50dp"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="TASK: "
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="70dp"
+                    android:text="DUE DATE: "
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="120dp"
+                    android:text="REQUIREMENTS: "
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/tasksTitle_Edt"
+                    android:layout_width="180dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="5dp"
+                    android:ems="10"
+                    android:hint="Enter tasks"
+                    android:textStyle="italic"
+                    android:inputType="textPersonName"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="@+id/textView" />
+
+                <EditText
+                    android:id="@+id/scheduledDate_Edt"
+                    android:layout_width="180dp"
+                    android:layout_height="36dp"
+                    android:ems="10"
+                    android:hint="Due Date"
+                    android:inputType="datetime|textPersonName"
+                    android:textSize="14sp"
+                    android:textStyle="italic"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    app:layout_constraintStart_toEndOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+                <Button
+                    android:id="@+id/addReqsButton"
+                    android:text="+"
+                    app:layout_constraintStart_toEndOf="@+id/textView6"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                    app:layout_constraintTop_toTopOf="@+id/textView6"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+
+                </Button>
+
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/cardNested"
+                    android:layout_margin="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp">
+
+                    <LinearLayout
+                        android:id="@+id/edtText_linearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
